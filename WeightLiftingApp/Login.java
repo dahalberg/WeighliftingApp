@@ -20,7 +20,7 @@ public class Login
         username = enterName.next();
         if (username.toLowerCase().equals("create"))
         {
-            System.out.println("Hello World");
+            System.out.println("HelloWorld");
         }
         else
         {
