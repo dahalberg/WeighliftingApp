@@ -110,6 +110,9 @@ public class RunProgram
                 super.mouseClicked(me);
                 if (startWorkout.contains(me.getPoint()))
                 {
+                    BuildProgram build = new BuildProgram();
+                    
+                    
                     System.out.println("jello");
                 }
                 if (editAccount.contains(me.getPoint()))
