@@ -16,7 +16,6 @@ public class TestProgram
     private Polygon startWorkout;
     private Polygon editAccount;
     private Polygon logOut;
-    private int startClicked=0;
     
     public TestProgram()
     {
@@ -56,17 +55,9 @@ public class TestProgram
             protected void paintComponent(Graphics g)
             {
                 super.paintComponent(g);
-                if (startClicked==0)
-                {
-                    g.setColor(Color.blue);
-                    g.fillPolygon(startButton);
-                    g.drawPolygon(startButton);
-                }
-                else if (startClicked==1)
-                {
-                    g.dispose();
-                }
-                repaint();
+                g.setColor(Color.blue);
+                g.fillPolygon(startButton);
+                g.drawPolygon(startButton);
             }
             @Override
             public Dimension getPreferredSize()
@@ -82,7 +73,8 @@ public class TestProgram
             {
                 if (startButton.contains(me.getPoint()))
                 {
-                    startClicked=1;
+                    p.setVisible(false);
+                    option();
                 }
             }
         };
