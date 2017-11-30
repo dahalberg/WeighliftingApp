@@ -20,7 +20,7 @@ public class TestProgram
     
     public TestProgram()
     {
-        
+        initial();
     }
 
     public static void main(String[] args)
@@ -54,6 +54,7 @@ public class TestProgram
             {
                 super.paintComponent(g);
                 g.setColor(Color.blue);
+                g.fillPolygon(startButton);
                 g.drawPolygon(startButton);
             }
             @Override
