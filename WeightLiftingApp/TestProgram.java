@@ -11,15 +11,16 @@ import javax.swing.SwingUtilities;
 
 public class TestProgram
 {
-    private JFrame startScreen;
-    private JFrame optionScreen;
+    private JFrame screen;
     private Polygon startButton;
     private Polygon startWorkout;
     private Polygon editAccount;
     private Polygon logOut;
+    private int startClicked=0;
     
     public TestProgram()
     {
+        Screen();
         initial();
     }
 
@@ -35,15 +36,17 @@ public class TestProgram
         });                
     }
     
+    public void Screen()
+    {
+        screen = new JFrame();
+        screen.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        screen.setVisible(true);
+    }
     
     public void initial()
     {
-        startScreen = new JFrame();
-        startScreen.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        
         int xStart[]={200,400,400,200};
         int yStart[]={450,450,550,550};
-        
         
         startButton=new Polygon(xStart,yStart,xStart.length);
         
@@ -53,9 +56,17 @@ public class TestProgram
             protected void paintComponent(Graphics g)
             {
                 super.paintComponent(g);
-                g.setColor(Color.blue);
-                g.fillPolygon(startButton);
-                g.drawPolygon(startButton);
+                if (startClicked==0)
+                {
+                    g.setColor(Color.blue);
+                    g.fillPolygon(startButton);
+                    g.drawPolygon(startButton);
+                }
+                else if (startClicked==1)
+                {
+                    g.dispose();
+                }
+                repaint();
             }
             @Override
             public Dimension getPreferredSize()
@@ -71,15 +82,79 @@ public class TestProgram
             {
                 if (startButton.contains(me.getPoint()))
                 {
-                    //option();
-                    startScreen.setVisible(false);
+                    startClicked=1;
                 }
             }
         };
         
         p.addMouseListener(ma);
-        startScreen.add(p);
-        startScreen.pack();
-        startScreen.setVisible(true);
+        screen.add(p);
+        screen.pack();
     }
+    
+    
+    public void option()
+    {
+        int xWorkout[] = {200,400,400,200};
+        int yWorkout[] = {250,250,350,350};
+        int xAccount[] = {200,400,400,200};
+        int yAccount[] = {400,400,500,500};
+        int xLogOut[] = {200,400,400,200};
+        int yLogOut[] = {550,550,650,650};
+        
+        startWorkout = new Polygon(xWorkout,yWorkout,xWorkout.length);
+        editAccount = new Polygon(xAccount,yAccount,xAccount.length);
+        logOut = new Polygon(xLogOut,yLogOut,xLogOut.length);
+        
+        JPanel m = new JPanel()
+        {
+            @Override
+            protected void paintComponent(Graphics g)
+            {
+                super.paintComponent(g);
+                g.setColor(Color.blue);
+                g.drawPolygon(startWorkout);
+                g.drawPolygon(editAccount);
+                g.drawPolygon(logOut);
+            }
+            @Override
+            public Dimension getPreferredSize()
+            {
+                return new Dimension(600,700);
+            }
+        };
+        
+        MouseAdapter ma = new MouseAdapter()
+        {
+            @Override
+            public void mouseClicked(MouseEvent me)
+            {
+                super.mouseClicked(me);
+                if (startWorkout.contains(me.getPoint()))
+                {
+                    BuildProgram build = new BuildProgram();
+                    
+                    
+                    System.out.println("jello");
+                }
+                if (editAccount.contains(me.getPoint()))
+                {
+                    
+                }
+                if (logOut.contains(me.getPoint()))
+                {
+                    
+                }
+            }
+        };
+        
+        m.addMouseListener(ma);
+        screen.add(m);
+        screen.pack();
+        
+        
+    }
+
+    
+    
 }
