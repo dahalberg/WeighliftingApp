@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=TestProgram
+comment1.params=
+comment1.target=TestProgram()
+comment2.params=args
+comment2.target=void\ main(java.lang.String[])
+comment3.params=
+comment3.target=void\ run()
+comment4.params=
+comment4.target=void\ initial()
+comment5.params=g
+comment5.target=void\ paintComponent(java.awt.Graphics)
+comment6.params=
+comment6.target=java.awt.Dimension\ getPreferredSize()
+comment7.params=me
+comment7.target=void\ mouseClicked(java.awt.event.MouseEvent)
+numComments=8
