@@ -70,9 +70,6 @@ public class TestProgram
             }
         };
         
-        JLabel title = new JLabel("WeightLifting App");
-        init.add(title);
-        title.setBounds(200,400,100,100);
 
         
         MouseAdapter ma = new MouseAdapter()
