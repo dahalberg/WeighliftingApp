@@ -127,7 +127,6 @@ public class TestProgram
             @Override
             public void mouseClicked(MouseEvent me)
             {
-                super.mouseClicked(me);
                 if (startWorkout.contains(me.getPoint()))
                 {
                     opt.setVisible(false);
@@ -153,9 +152,7 @@ public class TestProgram
     public void Program()
     {
         BuildProgram lift = new BuildProgram();
-        int day = 0;
-        int week = 0;
-        boolean dayClick=false;
+        
         
         int xDay1[] = {200,400,400,200};
         int yDay1[] = {250,250,350,350};
@@ -174,7 +171,7 @@ public class TestProgram
             protected void paintComponent(Graphics g)
             {
                 super.paintComponent(g);
-                g.setColor(Color.black);
+                g.setColor(Color.blue);
                 g.fillPolygon(day1);
                 g.fillPolygon(day2);
                 g.fillPolygon(day3);
@@ -194,8 +191,19 @@ public class TestProgram
             @Override
             public void mouseClicked(MouseEvent me)
             {
-             super.mouseClicked(me);
-             
+                int day = 0;
+                if (day1.contains(me.getPoint()))
+                {
+                    day=1;
+                }
+                if (day2.contains(me.getPoint()))
+                {
+                    day=2;
+                }
+                if (day3.contains(me.getPoint()))
+                {
+                    day=3;
+                }
             }
         };
         
@@ -206,6 +214,7 @@ public class TestProgram
     
     public void Settings()
     {
+        System.out.println("hello!");
     }
     
     
