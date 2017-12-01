@@ -6,6 +6,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JLabel;
 import javax.swing.SwingUtilities;
 
 
@@ -68,6 +69,11 @@ public class TestProgram
                 return new Dimension(600,700);
             }
         };
+        
+        JLabel title = new JLabel("WeightLifting App");
+        init.add(title);
+        title.setBounds(200,400,100,100);
+
         
         MouseAdapter ma = new MouseAdapter()
         {

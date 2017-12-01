@@ -1,11 +1,13 @@
 
-public class Settings
+
+
+public class WeightSettings
 {
     public int maxFS;
     public int maxHC;
     public int maxDL;
     
-    public Settings()
+    public WeightSettings()
     {
     }
 

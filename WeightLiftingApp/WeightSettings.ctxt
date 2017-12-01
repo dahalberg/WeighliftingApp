@@ -1,7 +1,7 @@
 #BlueJ class context
-comment0.target=Settings
+comment0.target=WeightSettings
 comment1.params=
-comment1.target=Settings()
+comment1.target=WeightSettings()
 comment2.params=maxFS
 comment2.target=void\ setMaxFS(int)
 comment3.params=

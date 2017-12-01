@@ -2,4 +2,10 @@
 comment0.target=Tester
 comment1.params=
 comment1.target=Tester()
-numComments=2
+comment2.params=
+comment2.target=void\ systemCloser()
+comment3.params=
+comment3.target=void\ labelTesting()
+comment4.params=
+comment4.target=java.awt.Dimension\ getPreferredSize()
+numComments=5
