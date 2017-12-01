@@ -16,6 +16,9 @@ public class TestProgram
     private Polygon startWorkout;
     private Polygon editAccount;
     private Polygon logOut;
+    private Polygon day1;
+    private Polygon day2;
+    private Polygon day3;
     
     public TestProgram()
     {
@@ -49,13 +52,13 @@ public class TestProgram
         
         startButton=new Polygon(xStart,yStart,xStart.length);
         
-        JPanel p = new JPanel()
+        JPanel init = new JPanel()
         {
             @Override
             protected void paintComponent(Graphics g)
             {
                 super.paintComponent(g);
-                g.setColor(Color.blue);
+                g.setColor(Color.black);
                 g.fillPolygon(startButton);
                 g.drawPolygon(startButton);
             }
@@ -73,14 +76,14 @@ public class TestProgram
             {
                 if (startButton.contains(me.getPoint()))
                 {
-                    p.setVisible(false);
+                    init.setVisible(false);
                     option();
                 }
             }
         };
         
-        p.addMouseListener(ma);
-        screen.add(p);
+        init.addMouseListener(ma);
+        screen.add(init);
         screen.pack();
     }
     
@@ -98,13 +101,16 @@ public class TestProgram
         editAccount = new Polygon(xAccount,yAccount,xAccount.length);
         logOut = new Polygon(xLogOut,yLogOut,xLogOut.length);
         
-        JPanel m = new JPanel()
+        JPanel opt = new JPanel()
         {
             @Override
             protected void paintComponent(Graphics g)
             {
                 super.paintComponent(g);
-                g.setColor(Color.blue);
+                g.setColor(Color.black);
+                g.fillPolygon(startWorkout);
+                g.fillPolygon(editAccount);
+                g.fillPolygon(logOut);
                 g.drawPolygon(startWorkout);
                 g.drawPolygon(editAccount);
                 g.drawPolygon(logOut);
@@ -124,29 +130,84 @@ public class TestProgram
                 super.mouseClicked(me);
                 if (startWorkout.contains(me.getPoint()))
                 {
-                    BuildProgram build = new BuildProgram();
-                    
-                    
-                    System.out.println("jello");
+                    opt.setVisible(false);
+                    Program();
                 }
                 if (editAccount.contains(me.getPoint()))
                 {
-                    
+                    opt.setVisible(false);
+                    Settings();
                 }
                 if (logOut.contains(me.getPoint()))
                 {
-                    
+                    screen.setVisible(false);
                 }
             }
         };
         
-        m.addMouseListener(ma);
-        screen.add(m);
+        opt.addMouseListener(ma);
+        screen.add(opt);
         screen.pack();
-        
-        
     }
 
+    public void Program()
+    {
+        BuildProgram lift = new BuildProgram();
+        int day = 0;
+        int week = 0;
+        boolean dayClick=false;
+        
+        int xDay1[] = {200,400,400,200};
+        int yDay1[] = {250,250,350,350};
+        int xDay2[] = {200,400,400,200};
+        int yDay2[] = {400,400,500,500};
+        int xDay3[] = {200,400,400,200};
+        int yDay3[] = {550,550,650,650};
+        
+        day1= new Polygon(xDay1,yDay1,xDay1.length);
+        day2= new Polygon(xDay2,yDay2,xDay2.length);
+        day3= new Polygon(xDay3,yDay3,xDay3.length);
+        
+        JPanel pro = new JPanel()
+        {
+            @Override
+            protected void paintComponent(Graphics g)
+            {
+                super.paintComponent(g);
+                g.setColor(Color.black);
+                g.fillPolygon(day1);
+                g.fillPolygon(day2);
+                g.fillPolygon(day3);
+                g.drawPolygon(day1);
+                g.drawPolygon(day2);
+                g.drawPolygon(day3);
+            }
+            @Override
+            public Dimension getPreferredSize()
+            {
+                return new Dimension(600,700);
+            }
+        };
+        
+        MouseAdapter ma = new MouseAdapter()
+        {
+            @Override
+            public void mouseClicked(MouseEvent me)
+            {
+             super.mouseClicked(me);
+             
+            }
+        };
+        
+        pro.addMouseListener(ma);
+        screen.add(pro);
+        screen.pack();        
+    }
+    
+    public void Settings()
+    {
+    }
+    
     
     
 }
