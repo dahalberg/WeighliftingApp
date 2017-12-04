@@ -9,8 +9,7 @@ public class TestProgram2
     private JButton startWorkout;
     private JButton options;
     private JButton logOut;
-    private JTextField day;
-    private JTextField week;
+    
     
 
     public TestProgram2() 
@@ -47,6 +46,7 @@ public class TestProgram2
     {
         public void actionPerformed(ActionEvent e)
         {
+            new StartWorkoutUI();
         }
     }
     
@@ -54,7 +54,7 @@ public class TestProgram2
     {
         public void actionPerformed(ActionEvent e)
         {
-            
+            new SettingsUI();
         }
     }
     
