@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.awt.event.*;
 import javax.swing.JFrame;
 import javax.swing.*;
 import java.util.Scanner;
@@ -44,7 +45,6 @@ public class Tester
         screen = new JFrame("Window");
         
         screen.setSize(500,500);
-        
         screen.setDefaultCloseOperation(screen.EXIT_ON_CLOSE);
         screen.setLayout(new FlowLayout());
         
@@ -52,13 +52,21 @@ public class Tester
         jb = new JButton("Enter");
         jt = new JTextField(15);
         
+        jb.addActionListener(new MyButtonListener());
+        
         screen.add(jl);
         screen.add(jt); 
         screen.add(jb);
         
         screen.setVisible(true);
-        
-        
+    }
+    
+    private class MyButtonListener implements ActionListener
+    {
+        public void actionPerformed(ActionEvent e)
+        {
+            System.out.println("hello");
+        }
     }
 
     
