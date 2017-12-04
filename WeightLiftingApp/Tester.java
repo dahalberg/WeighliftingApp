@@ -1,9 +1,7 @@
-import java.util.Scanner;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Polygon;
+import java.awt.*;
+import javax.swing.JFrame;
 import javax.swing.*;
+import java.util.Scanner;
 
 
 
@@ -11,11 +9,13 @@ public class Tester
 {
     public String q;
     private JFrame screen;
+    private JLabel jl;
+    private JButton jb;
+    private JTextField jt;
     
     
-    public Tester()
-    {
-
+    public Tester() {
+        program();
     }
 
     public void systemCloser()
@@ -35,25 +35,32 @@ public class Tester
             System.out.println("Window is open");
         }
     }
-    
-    public void labelTesting()
-    {
-        screen = new JFrame();
-        screen.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        screen.setVisible(true);
-        
-        JPanel panel = new JPanel()
-        {
-            @Override
-            public Dimension getPreferredSize()
-            {
-                return new Dimension(1000,700);
-            }
-        };
-        
-        screen.add(panel);
-        screen.pack();
-        
+     
+    public static void main(String[] args) {
+        new Tester();
     }
     
+    public void program() {
+        screen = new JFrame("Window");
+        
+        screen.setSize(500,500);
+        
+        screen.setDefaultCloseOperation(screen.EXIT_ON_CLOSE);
+        screen.setLayout(new FlowLayout());
+        
+        jl = new JLabel("Please enter a number:");
+        jb = new JButton("Enter");
+        jt = new JTextField(15);
+        
+        screen.add(jl);
+        screen.add(jt); 
+        screen.add(jb);
+        
+        screen.setVisible(true);
+        
+        
+    }
+
+    
+ 
 }

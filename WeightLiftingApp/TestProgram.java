@@ -63,11 +63,11 @@ public class TestProgram
                 g.fillPolygon(startButton);
                 g.drawPolygon(startButton);
             }
-            @Override
-            public Dimension getPreferredSize()
-            {
-                return new Dimension(600,700);
-            }
+            // @Override
+            // public Dimension getPreferredSize()
+            // {
+                // return new Dimension(600,700);
+            // }
         };
         
 
