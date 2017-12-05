@@ -45,7 +45,7 @@ public class DayOne extends Workout
         screen.setDefaultCloseOperation(screen.EXIT_ON_CLOSE);
         screen.setLayout(new GridLayout(10,1,10,10));
         
-        lowerB = new JLabel(Integer.toString(lowerBody.primaryLowerBody(200,1)));
+        lowerB = new JLabel("hello");
         
         screen.add(lowerB);
         
