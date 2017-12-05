@@ -2,17 +2,18 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class TestProgram2
+public class HomeUI
 {
     private JFrame screen;
     private JLabel title;
     private JButton startWorkout;
     private JButton options;
     private JButton logOut;
+    Clicked click = new Clicked();
+    Person p = new Person();
     
     
-
-    public TestProgram2() 
+    public HomeUI()
     {
         screen = new JFrame("WeightLiftingApp");
         
@@ -37,9 +38,14 @@ public class TestProgram2
         screen.setVisible(true);
     }
     
+    public void display() 
+    {
+        
+    }
+    
     public static void main(String[] args) 
     {
-        new TestProgram2();
+        new HomeUI();
     }
     
     private class startButton implements ActionListener
@@ -47,6 +53,7 @@ public class TestProgram2
         public void actionPerformed(ActionEvent e)
         {
             new StartWorkoutUI();
+            screen.setVisible(false);
         }
     }
     
@@ -55,6 +62,7 @@ public class TestProgram2
         public void actionPerformed(ActionEvent e)
         {
             new SettingsUI();
+            screen.setVisible(false);
         }
     }
     
@@ -62,7 +70,7 @@ public class TestProgram2
     {
         public void actionPerformed(ActionEvent e)
         {
-            
+            System.out.println(p.getMaxFS());
         }
     }
     
