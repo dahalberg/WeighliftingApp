@@ -4,10 +4,6 @@ import javax.swing.*;
 
 public class SettingsUI extends BaseUI
 {
-    Person person = new Person();
-    StringMethods sm = new StringMethods();
-    Button b = new Button();
-
     private JFrame screen;
     private JLabel liftL;
     private JLabel weightL;
@@ -16,6 +12,10 @@ public class SettingsUI extends BaseUI
     private JTextField weightTF;
     private JButton save;
     private JButton exit;
+
+    Person person = new Person();
+    StringMethods sm = new StringMethods();
+    Button b = new Button();
 
     public int maxFS;
     public int maxHC;
@@ -27,7 +27,6 @@ public class SettingsUI extends BaseUI
     boolean isLift;
     String goToUI="";
 
-    
     public SettingsUI()
     {
 
@@ -35,7 +34,7 @@ public class SettingsUI extends BaseUI
 
     public void display()
     {
-        JFrame screen = new JFrame("WeightLiftingApp");
+        screen = new JFrame("WeightLiftingApp");
 
         screen.setSize(500,500);
         screen.setDefaultCloseOperation(screen.EXIT_ON_CLOSE);
@@ -43,7 +42,7 @@ public class SettingsUI extends BaseUI
 
         liftL = new JLabel("Enter a lift to change: Front Squat,Hang Clean, Deadlift");
         weightL = new JLabel("Enter weight");
-        error = new JLabel();
+        error = new JLabel("Save Workout");
         liftTF = new JTextField(10);
         weightTF = new JTextField(10);
         save = new JButton("Save");
@@ -60,7 +59,6 @@ public class SettingsUI extends BaseUI
         screen.add(exit);
         screen.add(error);
 
-        
         screen.setVisible(true);
     }
 
@@ -105,7 +103,7 @@ public class SettingsUI extends BaseUI
             }
             if (e.getSource()==exit)
             {
-                new HomeUI();
+                goToUI="home";
                 screen.setVisible(false);
             }
         }
@@ -115,9 +113,9 @@ public class SettingsUI extends BaseUI
     {
         return goToUI;
     }
-    
+
     public void reset()
     {
-        
+        goToUI="";
     }
 }

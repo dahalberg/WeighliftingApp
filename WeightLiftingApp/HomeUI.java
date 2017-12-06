@@ -81,7 +81,7 @@ public class HomeUI extends BaseUI
     
     public void reset()
     {
-        
+        goToUI="";
     }
 
 }

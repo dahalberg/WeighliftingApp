@@ -9,6 +9,7 @@ public class TestRunner
     HomeUI home = new HomeUI();
     StartWorkoutUI start = new StartWorkoutUI();
     SettingsUI settings = new SettingsUI();
+    Person person = new Person();
 
     boolean update;
     boolean firstOpen=true;
@@ -16,7 +17,7 @@ public class TestRunner
 
     public TestRunner()
     {
-        for (int i=0;i<5;i++)
+        for (int i=0;i<100;i++)
         {
             if (i==0)
             {
@@ -28,7 +29,6 @@ public class TestRunner
                 run();
             }while(!update);
             update=false;
-            System.out.println("lll");
         }
     }
 
@@ -57,8 +57,12 @@ public class TestRunner
         {
             System.out.close();
         }
-        System.out.println("lll");
-        if (base.goTo().equals("start"))
+        if (base.goTo().equals("home"))
+        {
+            goToUI="home";
+            update=true;
+        }
+        else if (base.goTo().equals("start"))
         {
             goToUI="start";
             update=true;

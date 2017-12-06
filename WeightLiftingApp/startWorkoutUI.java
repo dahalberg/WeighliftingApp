@@ -90,7 +90,7 @@ public class StartWorkoutUI extends BaseUI
     
     public void reset()
     {
-        
+        goToUI="";
     }
 
 }
