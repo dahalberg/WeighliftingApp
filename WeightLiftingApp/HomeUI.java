@@ -9,7 +9,6 @@ public class HomeUI extends BaseUI
     private JButton startWorkout;
     private JButton options;
     private JButton logOut;
-    Clicked click = new Clicked();
     Person p = new Person();
     Button b = new Button();
     
@@ -17,9 +16,9 @@ public class HomeUI extends BaseUI
     
     
     
-    public HomeUI()
+    public HomeUI(Person person)
     {
-
+        super(person);
     }
     
     public void display() 
@@ -48,11 +47,6 @@ public class HomeUI extends BaseUI
         screen.setVisible(true);
     }
 
-    public static void main(String[] args)
-    {
-        new HomeUI();
-    }
-    
     private class Button implements ActionListener
     {
         public void actionPerformed(ActionEvent e)
@@ -69,7 +63,8 @@ public class HomeUI extends BaseUI
             }
             if (e.getSource()==logOut)
             {
-                screen.setVisible(false);
+                screen.dispose();
+                System.exit(0);
             }
         }
     }

@@ -6,10 +6,10 @@ import java.lang.Thread;
 public class TestRunner
 {
     BaseUI base = null;
-    HomeUI home = new HomeUI();
-    StartWorkoutUI start = new StartWorkoutUI();
-    SettingsUI settings = new SettingsUI();
     Person person = new Person();
+    HomeUI home = new HomeUI(person);
+    StartWorkoutUI start = new StartWorkoutUI(person);
+    SettingsUI settings = new SettingsUI(person);
 
     boolean update;
     boolean firstOpen=true;

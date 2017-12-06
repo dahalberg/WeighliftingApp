@@ -21,9 +21,9 @@ public class StartWorkoutUI extends BaseUI
     
     String goToUI="";
 
-    public StartWorkoutUI()
+    public StartWorkoutUI(Person person)
     {
-
+        super(person);
     }
 
     public void display()

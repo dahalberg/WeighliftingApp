@@ -13,7 +13,6 @@ public class SettingsUI extends BaseUI
     private JButton save;
     private JButton exit;
 
-    Person person = new Person();
     StringMethods sm = new StringMethods();
     Button b = new Button();
 
@@ -27,9 +26,9 @@ public class SettingsUI extends BaseUI
     boolean isLift;
     String goToUI="";
 
-    public SettingsUI()
+    public SettingsUI(Person person)
     {
-
+        super(person);
     }
 
     public void display()
@@ -42,7 +41,7 @@ public class SettingsUI extends BaseUI
 
         liftL = new JLabel("Enter a lift to change: Front Squat,Hang Clean, Deadlift");
         weightL = new JLabel("Enter weight");
-        error = new JLabel("Save Workout");
+        error = new JLabel();
         liftTF = new JTextField(10);
         weightTF = new JTextField(10);
         save = new JButton("Save");

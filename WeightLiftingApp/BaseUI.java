@@ -5,9 +5,11 @@ import javax.swing.*;
 
 public abstract class BaseUI
 {
+    Person person;
     
-    public BaseUI()
+    public BaseUI(Person person)
     {
+        this.person = person;
     }
     
     abstract void display();
