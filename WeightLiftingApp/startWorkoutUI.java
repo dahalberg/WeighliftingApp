@@ -18,6 +18,8 @@ public class StartWorkoutUI extends BaseUI
     private boolean weekIsNum;
     StringMethods sm = new StringMethods();
     Button b = new Button();
+    
+    String goToUI="";
 
     public StartWorkoutUI()
     {
@@ -81,10 +83,14 @@ public class StartWorkoutUI extends BaseUI
         }
     }
 
-    public boolean isClicked()
+    public String goTo()
     {
-        return false;
+        return goToUI;
+    }
+    
+    public void reset()
+    {
+        
     }
 
-    
 }

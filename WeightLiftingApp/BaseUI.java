@@ -17,5 +17,7 @@ public abstract class BaseUI
         public abstract void actionPerformed(ActionEvent e);
     }
     
-    abstract boolean isClicked();
+    public abstract String goTo();
+    
+    public abstract void reset();
 }

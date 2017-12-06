@@ -11,16 +11,24 @@ public class TestRunner
     SettingsUI settings = new SettingsUI();
 
     boolean update;
+    boolean firstOpen=true;
+    String goToUI;
 
     public TestRunner()
     {
-        for (int i=0;i<1000;i++)
+        for (int i=0;i<5;i++)
         {
+            if (i==0)
+            {
+                update = false;
+                goToUI="home";
+            }
             do
             {
                 run();
             }while(!update);
             update=false;
+            System.out.println("lll");
         }
     }
 
@@ -29,13 +37,38 @@ public class TestRunner
         new TestRunner();
     }
 
-    public BaseUI run()
+    public void run()
     {
-        
-        
-        
-        home.display();
-        update=true;
-        return null;
+        if (goToUI.equals("home"))
+        {
+            base=home;
+        }
+        else if (goToUI.equals("start"))
+        {
+            base=start;
+        }
+        else if (goToUI.equals("settings"))
+        {
+            base = settings;
+        }
+        base.display();
+        base.reset();
+        while(base.goTo().equals(""))
+        {
+            System.out.close();
+        }
+        System.out.println("lll");
+        if (base.goTo().equals("start"))
+        {
+            goToUI="start";
+            update=true;
+        }
+        else if (base.goTo().equals("settings"))
+        {
+            goToUI="settings";
+            update=true;
+        }
     }
+
+    
 }

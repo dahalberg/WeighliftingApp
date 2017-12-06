@@ -25,6 +25,7 @@ public class SettingsUI extends BaseUI
     String weightNum;
     boolean weightIsNum;
     boolean isLift;
+    String goToUI="";
 
     
     public SettingsUI()
@@ -110,9 +111,13 @@ public class SettingsUI extends BaseUI
         }
     }
 
-    public boolean isClicked()
+    public String goTo()
     {
-        return false;
+        return goToUI;
     }
-
+    
+    public void reset()
+    {
+        
+    }
 }

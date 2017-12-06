@@ -13,8 +13,7 @@ public class HomeUI extends BaseUI
     Person p = new Person();
     Button b = new Button();
     
-    boolean startClicked = false;
-    boolean optClicked = false;
+    String goToUI="";
     
     
     
@@ -60,12 +59,13 @@ public class HomeUI extends BaseUI
         {
             if (e.getSource()==startWorkout)
             {
-                startClicked=true;
-                System.out.println("works");
+                goToUI="start";
+                screen.setVisible(false);
             }
             if (e.getSource()==options)
             {
-                optClicked=true;
+                goToUI="settings";
+                screen.setVisible(false);
             }
             if (e.getSource()==logOut)
             {
@@ -74,8 +74,14 @@ public class HomeUI extends BaseUI
         }
     }
 
-    public boolean isClicked()
+    public String goTo()
     {
-        return false;
+        return goToUI;
     }
+    
+    public void reset()
+    {
+        
+    }
+
 }

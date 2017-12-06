@@ -5,5 +5,5 @@ comment1.target=TestRunner()
 comment2.params=args
 comment2.target=void\ main(java.lang.String[])
 comment3.params=
-comment3.target=BaseUI\ run()
+comment3.target=void\ run()
 numComments=4
