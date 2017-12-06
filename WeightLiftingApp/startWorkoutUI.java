@@ -2,8 +2,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-
-public class StartWorkoutUI 
+public class StartWorkoutUI extends BaseUI
 {
     private JFrame screen;
     private JLabel dayL;
@@ -18,16 +17,21 @@ public class StartWorkoutUI
     private boolean dayIsNum;
     private boolean weekIsNum;
     StringMethods sm = new StringMethods();
-    
-    
+    Button b = new Button();
+
     public StartWorkoutUI()
     {
+
+    }
+
+    public void display()
+    {
         screen = new JFrame("WeightLiftingApp");
-        
+
         screen.setSize(500,500);
         screen.setDefaultCloseOperation(screen.EXIT_ON_CLOSE);
         screen.setLayout(new GridLayout(7,1,10,10));
-        
+
         dayL = new JLabel("What day are you on?",JLabel.CENTER);
         weekL = new JLabel("What week are you on?",JLabel.CENTER);
         dayTF = new JTextField(10);
@@ -35,10 +39,10 @@ public class StartWorkoutUI
         enter = new JButton("Enter");
         start = new JButton("Start Workout");
         error = new JLabel();
-        
-        enter.addActionListener(new enterButton());
-        start.addActionListener(new startButton());
-        
+
+        enter.addActionListener(b);
+        start.addActionListener(b);
+
         screen.add(dayL);
         screen.add(dayTF);
         screen.add(weekL);
@@ -46,50 +50,41 @@ public class StartWorkoutUI
         screen.add(enter);
         screen.add(start);
         screen.add(error);
-        
+
         screen.setVisible(true);
     }
-    
-    public static void display()
-    {
-        
-    }
-    
-    public static void main(String[] args)
-    {
-        new StartWorkoutUI();
-    }
-    
-    private class enterButton implements ActionListener
+
+    private class Button implements ActionListener
     {
         public void actionPerformed(ActionEvent e)
         {
-            dayIsNum=sm.isStringANum(dayTF.getText());
-            weekIsNum=sm.isStringANum(weekTF.getText());
-            
-            if (dayIsNum && weekIsNum)
+            if (e.getSource()==enter)
             {
-                day = Integer.valueOf(dayTF.getText());
-                week = Integer.valueOf(weekTF.getText());
+                dayIsNum=sm.isStringANum(dayTF.getText());
+                weekIsNum=sm.isStringANum(weekTF.getText());
+
+                if (dayIsNum && weekIsNum)
+                {
+                    day = Integer.valueOf(dayTF.getText());
+                    week = Integer.valueOf(weekTF.getText());
+                }
+                else
+                {
+                    error.setText("Please enter a number for day and week");
+                }
             }
-            else
+            if (e.getSource()==start)
             {
-                error.setText("Please enter a number for day and week");
+                BuildProgram lift = new BuildProgram();
+                lift.createWorkout(day,week);
             }
         }
     }
-    
-    private class startButton implements ActionListener
+
+    public boolean isClicked()
     {
-        public void actionPerformed(ActionEvent e)
-        {
-            BuildProgram lift = new BuildProgram();
-            lift.createWorkout(day,week);
-        }
+        return false;
     }
-    
-    
-    
-    
+
     
 }

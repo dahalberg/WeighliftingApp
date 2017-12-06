@@ -2,7 +2,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class HomeUI
+public class HomeUI extends BaseUI
 {
     private JFrame screen;
     private JLabel title;
@@ -11,9 +11,19 @@ public class HomeUI
     private JButton logOut;
     Clicked click = new Clicked();
     Person p = new Person();
+    Button b = new Button();
+    
+    boolean startClicked = false;
+    boolean optClicked = false;
+    
     
     
     public HomeUI()
+    {
+
+    }
+    
+    public void display() 
     {
         screen = new JFrame("WeightLiftingApp");
         
@@ -26,9 +36,10 @@ public class HomeUI
         options = new JButton("Settings");
         logOut = new JButton("Log Out");
         
-        startWorkout.addActionListener(new startButton());
-        options.addActionListener(new optionButton());
-        logOut.addActionListener(new logOutButton());
+        
+        startWorkout.addActionListener(b);
+        options.addActionListener(b);
+        logOut.addActionListener(b);
         
         screen.add(title);
         screen.add(startWorkout);
@@ -37,41 +48,34 @@ public class HomeUI
         
         screen.setVisible(true);
     }
-    
-    public void display() 
-    {
-        
-    }
-    
-    public static void main(String[] args) 
+
+    public static void main(String[] args)
     {
         new HomeUI();
     }
     
-    private class startButton implements ActionListener
+    private class Button implements ActionListener
     {
         public void actionPerformed(ActionEvent e)
         {
-            new StartWorkoutUI();
-            screen.setVisible(false);
+            if (e.getSource()==startWorkout)
+            {
+                startClicked=true;
+                System.out.println("works");
+            }
+            if (e.getSource()==options)
+            {
+                optClicked=true;
+            }
+            if (e.getSource()==logOut)
+            {
+                screen.setVisible(false);
+            }
         }
     }
-    
-    private class optionButton implements ActionListener
+
+    public boolean isClicked()
     {
-        public void actionPerformed(ActionEvent e)
-        {
-            new SettingsUI();
-            screen.setVisible(false);
-        }
+        return false;
     }
-    
-    private class logOutButton implements ActionListener
-    {
-        public void actionPerformed(ActionEvent e)
-        {
-            System.out.println(p.getMaxFS());
-        }
-    }
-    
 }

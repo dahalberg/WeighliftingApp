@@ -3,7 +3,7 @@ public class Clicked
 {
     boolean workoutButton = false;
     boolean settingsButton = false;
-    boolean saveButton = false;
+    boolean exitButton = false;
     boolean enterButton = false;
     
     public Clicked()
@@ -33,13 +33,13 @@ public class Clicked
     {
         workoutButton = false;
         settingsButton = false;
-        saveButton = false;
+        exitButton = false;
         enterButton = false;
     }
     
     public boolean isClicked()
     {
-        if (!(workoutButton && settingsButton && saveButton && enterButton))
+        if (!(workoutButton && settingsButton && exitButton && enterButton))
             return false;
         else
             return true;
