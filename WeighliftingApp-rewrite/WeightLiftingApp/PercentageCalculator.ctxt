@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=PercentageCalculator
+comment1.params=
+comment1.target=PercentageCalculator()
+comment2.params=max\ percent\ week
+comment2.target=int\ percent(int,\ double,\ int)
+comment3.params=q
+comment3.target=int\ roundTo5(int)
+numComments=4

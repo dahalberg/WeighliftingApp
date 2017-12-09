@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=Person
+comment1.params=
+comment1.target=Person()
+comment2.params=
+comment2.target=java.lang.String\ getName()
+comment3.params=maxFS
+comment3.target=void\ setMaxFS(int)
+comment4.params=
+comment4.target=int\ getMaxFS()
+comment5.params=maxHC
+comment5.target=void\ setMaxHC(int)
+comment6.params=
+comment6.target=int\ getMaxHC()
+comment7.params=maxDL
+comment7.target=void\ setMaxDL(int)
+comment8.params=
+comment8.target=int\ getMaxDL()
+numComments=9
